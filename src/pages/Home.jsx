@@ -21,8 +21,9 @@ export default function Home() {
 
     }
     return (
-        <div className='flex flex-col items-center justify-center'>
+        <div className='flex flex-col items-center justify-center gap-4'>
             <h2>Bienvenido de nuevo {user}</h2>
+            <p>Actualmente esta pagina esta en mantenimiento...</p>
             <button onClick={cerrarSesion} className='bg-green-600 px-3 py-2 rounded-2xl'>Cerrar Sesion</button>
         </div>
     )
