@@ -70,13 +70,15 @@ export default function Login() {
                             <label>Password</label>
                         </div>
                         <div className="forgot-pass">
-                            <a href="#">Forgot your password?</a>
+                            <a href="">Forgot your password?</a>
                         </div>
                         <button className="btn" type="submit">
                             Login
                         </button>
                         <div className="signup-link">
-                            <a href="#">Sign Up</a>
+                            <a href=""><button onClick={() => {
+                                navigate("/crearCuenta")
+                            }} className="cursor-pointer">Sign Up</button></a>
                         </div>
                     </form>
                 </div>
