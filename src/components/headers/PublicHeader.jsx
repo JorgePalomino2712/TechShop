@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function PublicHeader() {
   const navigate = useNavigate();
@@ -11,22 +12,22 @@ export default function PublicHeader() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <img 
-            src="/images/logo.png" 
-            alt="TechShop Logo" 
-            className="h-12 cursor-pointer" 
+          <img
+            src="/images/logo.png"
+            alt="TechShop Logo"
+            className="h-12 cursor-pointer"
             onClick={() => navigate('/')}
           />
-          
+
           {/* Desktop */}
           <nav className="hidden md:flex items-center space-x-8">
             <button onClick={() => navigate('/')} className="text-gray-700 hover:text-blue-600 font-medium transition-colors cursor-pointer">
               Inicio
             </button>
-            
+
             {/* Dropdown */}
             <div className="relative">
-              <button 
+              <button
                 onClick={() => setCategoriesDropdown(!categoriesDropdown)}
                 className="text-gray-700 hover:text-blue-600 font-medium transition-colors flex items-center cursor-pointer"
               >
@@ -35,12 +36,12 @@ export default function PublicHeader() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              
+
               {categoriesDropdown && (
                 <div className="absolute top-full left-0 mt-2 w-52 bg-white rounded-xl shadow-2xl py-3">
-                  
+
                   {/* Categorías */}
-                  <button
+                  <button type='button'
                     onClick={() => {
                       navigate('/category/celulares');
                       setCategoriesDropdown(false);
@@ -49,9 +50,9 @@ export default function PublicHeader() {
                   >
                     Celulares
                   </button>
-                  
+
                   <div className="mx-5 border-t border-gray-100"></div>
-                  
+
                   <button
                     onClick={() => {
                       navigate('/category/computadoras');
@@ -61,9 +62,9 @@ export default function PublicHeader() {
                   >
                     Computadoras
                   </button>
-                  
+
                   <div className="mx-5 border-t border-gray-100"></div>
-                  
+
                   <button
                     onClick={() => {
                       navigate('/category/videojuegos');
@@ -73,9 +74,9 @@ export default function PublicHeader() {
                   >
                     Videojuegos
                   </button>
-                  
+
                   <div className="mx-5 border-t border-gray-100"></div>
-                  
+
                   <button
                     onClick={() => {
                       navigate('/category/audio');
@@ -85,28 +86,28 @@ export default function PublicHeader() {
                   >
                     Audio
                   </button>
-                  
+
                 </div>
               )}
             </div>
 
-            <button onClick={() => navigate('/products')} className="text-gray-700 hover:text-blue-600 font-medium transition-colors cursor-pointer">
+            <Link to="/productos" className="text-gray-700 hover:text-blue-600 font-medium transition-colors cursor-pointer">
               Productos
-            </button>
+            </Link>
             <button onClick={() => navigate('/about')} className="text-gray-700 hover:text-blue-600 font-medium transition-colors cursor-pointer">
               Nosotros
             </button>
           </nav>
-          
+
           {/* Botones de Login y registro */}
           <div className="hidden md:flex items-center space-x-4">
-            <button 
+            <button
               onClick={() => navigate('/login')}
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors cursor-pointer"
             >
               Iniciar Sesión
             </button>
-            <button 
+            <button
               onClick={() => navigate('/crearCuenta')}
               className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-medium hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl cursor-pointer"
             >
@@ -115,7 +116,7 @@ export default function PublicHeader() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden p-2"
             onClick={() => setMenuOpen(!menuOpen)}
           >
@@ -129,48 +130,48 @@ export default function PublicHeader() {
         {menuOpen && (
           <div className="md:hidden bg-white border-t border-gray-200 py-4">
             <div className="flex flex-col space-y-4">
-              <button 
+              <button
                 onClick={() => { navigate('/'); setMenuOpen(false); }}
                 className="text-gray-700 hover:text-blue-600 font-medium text-left py-2 cursor-pointer"
               >
                 Inicio
               </button>
-              
+
               {/* Categorías en Mobile */}
               <div className="py-2">
                 <p className="text-gray-500 text-sm font-semibold mb-3">CATEGORÍAS</p>
                 <div className="space-y-2">
                   <button
-                    onClick={() => { 
-                      navigate('/category/celulares'); 
-                      setMenuOpen(false); 
+                    onClick={() => {
+                      navigate('/category/celulares');
+                      setMenuOpen(false);
                     }}
                     className="w-full text-left text-gray-700 hover:text-blue-600 py-2 cursor-pointer"
                   >
                     Celulares
                   </button>
                   <button
-                    onClick={() => { 
-                      navigate('/category/computadoras'); 
-                      setMenuOpen(false); 
+                    onClick={() => {
+                      navigate('/category/computadoras');
+                      setMenuOpen(false);
                     }}
                     className="w-full text-left text-gray-700 hover:text-blue-600 py-2 cursor-pointer"
                   >
                     Computadoras
                   </button>
                   <button
-                    onClick={() => { 
-                      navigate('/category/videojuegos'); 
-                      setMenuOpen(false); 
+                    onClick={() => {
+                      navigate('/category/videojuegos');
+                      setMenuOpen(false);
                     }}
                     className="w-full text-left text-gray-700 hover:text-blue-600 py-2 cursor-pointer"
                   >
                     Videojuegos
                   </button>
                   <button
-                    onClick={() => { 
-                      navigate('/category/audio'); 
-                      setMenuOpen(false); 
+                    onClick={() => {
+                      navigate('/category/audio');
+                      setMenuOpen(false);
                     }}
                     className="w-full text-left text-gray-700 hover:text-blue-600 py-2 cursor-pointer"
                   >
@@ -179,26 +180,26 @@ export default function PublicHeader() {
                 </div>
               </div>
 
-              <button 
+              <button
                 onClick={() => { navigate('/products'); setMenuOpen(false); }}
                 className="text-gray-700 hover:text-blue-600 font-medium text-left py-2 cursor-pointer"
               >
                 Productos
               </button>
-              <button 
+              <button
                 onClick={() => { navigate('/about'); setMenuOpen(false); }}
                 className="text-gray-700 hover:text-blue-600 font-medium text-left py-2 cursor-pointer"
               >
                 Nosotros
               </button>
               <div className="border-t border-gray-200 pt-4">
-                <button 
+                <button
                   onClick={() => { navigate('/login'); setMenuOpen(false); }}
                   className="text-gray-700 hover:text-blue-600 font-medium text-left py-2 w-full cursor-pointer"
                 >
                   Iniciar Sesión
                 </button>
-                <button 
+                <button
                   onClick={() => { navigate('/crearCuenta'); setMenuOpen(false); }}
                   className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-medium hover:from-blue-700 hover:to-purple-700 transition-all w-full mt-2 cursor-pointer"
                 >

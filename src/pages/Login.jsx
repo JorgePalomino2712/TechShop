@@ -46,11 +46,12 @@ export default function Login() {
         }
     }
     return (
-        <div className='h-screen flex items-center justify-center bg-gray-800'>
+        <div className='h-screen flex flex-col gap-5 items-center justify-center bg-gray-800'>
+            {error && <div className="text-red-600 text-2xl">¡{error}!</div>}
 
             <div className="container">
                 <div className="login-box">
-                    <h2>Login</h2>
+                    <h2>Iniciar Sesión</h2>
                     <form
                         onSubmit={enviarFormulario}
                         action="#">
@@ -59,7 +60,7 @@ export default function Login() {
                                 setEmail(e.target.value)
                             }}
                                 defaultValue="" required="" type="email" />
-                            <label>Email</label>
+                            <label>Correo</label>
                         </div>
                         <div className="input-box">
                             <input
@@ -67,18 +68,26 @@ export default function Login() {
                                     setPassword(e.target.value)
                                 }}
                                 defaultValue="" required="" type="password" />
-                            <label>Password</label>
+                            <label>Contraseña</label>
                         </div>
-                        <div className="forgot-pass">
-                            <a href="">Forgot your password?</a>
+                        <div
+                            onClick={() => {
+                                navigate("/")
+                            }}
+                            className="forgot-pass flex items-center justify-center gap-1 cursor-pointer ">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} className="size-4 stroke-blue-400">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                            </svg>
+
+                            <p className="text-blue-400">Regresar</p>
                         </div>
                         <button className="btn" type="submit">
-                            Login
+                            Ingresar
                         </button>
                         <div className="signup-link">
                             <a href=""><button onClick={() => {
                                 navigate("/crearCuenta")
-                            }} className="cursor-pointer">Sign Up</button></a>
+                            }} className="cursor-pointer">Registrarse</button></a>
                         </div>
                     </form>
                 </div>
