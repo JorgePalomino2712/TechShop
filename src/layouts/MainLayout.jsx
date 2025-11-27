@@ -1,17 +1,16 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import CardsP from '../components/CardsP'
-
+import PublicHeader from '../components/headers/PublicHeader'
+import Footer from '../components/footers/Footer'
 
 export default function MainLayout() {
     return (
         <div className="min-h-screen flex flex-col">
-
+            <PublicHeader/>
             <main className="flex-1">
                 <Outlet />
             </main>
-            <CardsP></CardsP>
-
+            <Footer/>
         </div>
     )
 }
