@@ -6,6 +6,10 @@ import MainLayout from './layouts/MainLayout'
 import Landing from './pages/public/Landing'
 import CardsP from './pages/public/CardsP'
 import CradsFilter from './pages/public/CradsFilter'
+import AdminLayout from './layouts/AdminLayout'
+import HomeAdmin from './pages/admin/HomeAdmin'
+import PerfilAdmin from './pages/admin/PerfilAdmin'
+import ProtecterRoute from './components/ProtecterRoute'
 
 export default function App() {
   return (
@@ -16,6 +20,13 @@ export default function App() {
           <Route path='/productos' element={<CardsP />} />
           <Route path='/category/:categoryName' element={<CradsFilter />} />
         </Route>
+        <Route element={<ProtecterRoute RolUser={"admin"} />}>
+          <Route path='/admin' element={<AdminLayout />}>
+            <Route index element={<HomeAdmin />} />
+            <Route path='perfil' element={<PerfilAdmin />} />
+          </Route>
+        </Route>
+
         <Route path="/login" element={<Login />} />
         <Route path="/crearCuenta" element={<CuentaNueva />} />
         <Route path="/home" element={<Navigate to="/" replace />} />

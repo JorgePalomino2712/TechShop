@@ -37,7 +37,8 @@ export default function Login() {
             }
             localStorage.setItem("token", data.access_token)
             localStorage.setItem("nombre", data.user_name)
-            navigate("/home")
+            localStorage.setItem("role", data.user_role)
+            navigate("/admin")
         } catch (err) {
             setError(err.message);
             console.log(error)
