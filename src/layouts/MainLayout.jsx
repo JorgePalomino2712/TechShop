@@ -1,5 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import CardsP from '../components/CardsP'
 
 
 export default function MainLayout() {
@@ -9,6 +10,7 @@ export default function MainLayout() {
             <main className="flex-1">
                 <Outlet />
             </main>
+            <CardsP></CardsP>
 
         </div>
     )
