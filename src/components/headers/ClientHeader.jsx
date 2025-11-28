@@ -9,7 +9,7 @@ export default function ClientHeader() {
   const userNombre = localStorage.getItem("nombre");
 
   function cerrarSesion() {
-    localStorage.clear();  
+    localStorage.clear();
     navigate('/');
   };
 
@@ -22,13 +22,13 @@ export default function ClientHeader() {
             src="/images/logo.png"
             alt="TechShop Logo"
             className="h-12 cursor-pointer"
-            onClick={() => navigate('/client/home')}
+            onClick={() => navigate('/admin')}
           />
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => navigate('/client/home')} 
+            <button
+              onClick={() => navigate('/client/home')}
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors cursor-pointer"
             >
               Inicio
@@ -97,8 +97,8 @@ export default function ClientHeader() {
               )}
             </div>
 
-            <button 
-              onClick={() => navigate('/client/products')} 
+            <button
+              onClick={() => navigate('/client/products')}
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors cursor-pointer"
             >
               Productos
@@ -118,7 +118,7 @@ export default function ClientHeader() {
             </button>
 
             {/* Carrito */}
-            <button 
+            <button
               onClick={() => navigate('/client/cart')}
               className="relative p-2 text-gray-700 hover:text-blue-600 transition-colors cursor-pointer"
             >
@@ -132,12 +132,12 @@ export default function ClientHeader() {
 
             {/* Perfil Dropdown */}
             <div className="relative">
-              <button 
+              <button
                 onClick={() => setProfileDropdown(!profileDropdown)}
                 className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors cursor-pointer"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
                 <span className="font-medium">Hola, {userNombre}</span>
                 <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -271,9 +271,9 @@ export default function ClientHeader() {
                   </svg>
                   <span>Carrito</span>
                 </button>
-                
+
                 <div className="border-t border-gray-200 my-2"></div>
-                
+
                 <button
                   onClick={() => { navigate('/client/profile'); setMenuOpen(false); }}
                   className="flex items-center space-x-3 text-gray-700 hover:text-blue-600 font-medium text-left py-2 w-full cursor-pointer"
