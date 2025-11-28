@@ -10,6 +10,11 @@ import AdminLayout from './layouts/AdminLayout'
 import HomeAdmin from './pages/admin/HomeAdmin'
 import PerfilAdmin from './pages/admin/PerfilAdmin'
 import ProtecterRoute from './components/ProtecterRoute'
+import EditarPerfil from './pages/admin/EditarPerfil'
+import Usuarios from "./pages/admin/Usuarios"
+import OrdenesAdmin from "./pages/admin/OrdenesAdmin"
+import Productos from "./pages/admin/Productos"
+
 
 export default function App() {
   return (
@@ -21,9 +26,15 @@ export default function App() {
           <Route path='/category/:categoryName' element={<CradsFilter />} />
         </Route>
         <Route element={<ProtecterRoute RolUser={"admin"} />}>
-          <Route path='/admin' element={<AdminLayout />}>
+          <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<HomeAdmin />} />
-            <Route path='perfil' element={<PerfilAdmin />} />
+            <Route path="perfil/:id" element={<PerfilAdmin />}>
+              <Route index element={<EditarPerfil />} />
+              <Route path="usuarios" element={<Usuarios />} />
+
+              <Route path="ordenes" element={<OrdenesAdmin />} />
+              <Route path="productos" element={<Productos />} />
+            </Route>
           </Route>
         </Route>
 
