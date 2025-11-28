@@ -10,21 +10,49 @@ import AdminLayout from './layouts/AdminLayout'
 import HomeAdmin from './pages/admin/HomeAdmin'
 import PerfilAdmin from './pages/admin/PerfilAdmin'
 import ProtecterRoute from './components/ProtecterRoute'
+import ClientLayout from './layouts/ClientLayout'
+import ClientHome from './pages/client/ClientHome'
+import UserProfileLayout from './layouts/UserProfileLayout'
+import ProfilePage from './pages/client/ProfilePage' 
+import PedidosPage from './pages/client/PedidosPage' 
+import FavoritosPage from './pages/client/FavoritosPage' 
+import CardsC from './pages/client/CardsC'
 import EditarPerfil from './pages/admin/EditarPerfil'
 import Usuarios from "./pages/admin/Usuarios"
 import OrdenesAdmin from "./pages/admin/OrdenesAdmin"
 import Productos from "./pages/admin/Productos"
 
 
+
 export default function App() {
   return (
     <>
+      {/* Rutas publicas */}
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Landing />} />
           <Route path='/productos' element={<CardsP />} />
           <Route path='/category/:categoryName' element={<CradsFilter />} />
         </Route>
+
+        {/* Rutas CLIENTE */}
+        <Route element={<ProtecterRoute RolUser={"cliente"} />}>
+          <Route path='/client' element={<ClientLayout />}>
+            <Route path='home' element={<ClientHome />} />
+            <Route path='products' element={<CardsC />} />
+            <Route path='category/:categoryName' element={<CradsFilter />} />
+            {/* <Route path='cart' element={<Cart />} /> */}
+          </Route>
+
+          <Route path='/client/profile' element={<UserProfileLayout />}>
+            <Route index element={<ProfilePage />} />
+            <Route path='pedidos' element={<PedidosPage />} />
+            <Route path='favoritos' element={<FavoritosPage />} />
+          </Route>
+        </Route>
+
+
+        {/* Rutas ADMIN */}
         <Route element={<ProtecterRoute RolUser={"admin"} />}>
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<HomeAdmin />} />
