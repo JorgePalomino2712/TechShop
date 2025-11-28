@@ -21,7 +21,8 @@ import EditarPerfil from './pages/admin/EditarPerfil'
 import Usuarios from "./pages/admin/Usuarios"
 import OrdenesAdmin from "./pages/admin/OrdenesAdmin"
 import Productos from "./pages/admin/Productos"
-
+import EditarPerfilCliente from './pages/client/EditarPerfilCliente'
+import CradsFilterClient from './pages/client/CradsFilterClient'
 
 
 export default function App() {
@@ -40,12 +41,13 @@ export default function App() {
           <Route path='/client' element={<ClientLayout />}>
             <Route path='home' element={<ClientHome />} />
             <Route path='products' element={<CardsC />} />
-            <Route path='category/:categoryName' element={<CradsFilter />} />
+            <Route path='category/:categoryName' element={<CradsFilterClient />} />
             {/* <Route path='cart' element={<Cart />} /> */}
           </Route>
 
           <Route path='/client/profile' element={<UserProfileLayout />}>
             <Route index element={<ProfilePage />} />
+            <Route path='editar' element={<EditarPerfilCliente />} />
             <Route path='pedidos' element={<PedidosPage />} />
             <Route path='favoritos' element={<FavoritosPage />} />
           </Route>

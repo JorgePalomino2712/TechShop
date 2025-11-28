@@ -63,6 +63,11 @@ export default function CradsFilterClient() {
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center'>
                 {product.map((p) => (
                     <div key={p.id} className="w-60 h-100 bg-gray-100 p-3 flex flex-col gap-1 rounded-2xl relative">
+                        <button className="absolute top-3 left-3 z-10 p-1 bg-white/80 rounded-full hover:bg-white transition-colors cursor-pointer">
+                            <svg className="w-5 h-5 text-gray-500 hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </button>
                         <img src={p.image_url} className='h-48 bg-gray-700 rounded-xl w-full object-cover' alt={p.name} />
                         <div className="flex flex-col gap-4 h-full">
                             <div className="flex flex-row justify-between">
