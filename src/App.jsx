@@ -17,6 +17,12 @@ import ProfilePage from './pages/client/ProfilePage'
 import PedidosPage from './pages/client/PedidosPage' 
 import FavoritosPage from './pages/client/FavoritosPage' 
 import CardsC from './pages/client/CardsC'
+import EditarPerfil from './pages/admin/EditarPerfil'
+import Usuarios from "./pages/admin/Usuarios"
+import OrdenesAdmin from "./pages/admin/OrdenesAdmin"
+import Productos from "./pages/admin/Productos"
+
+
 
 export default function App() {
   return (
@@ -48,9 +54,15 @@ export default function App() {
 
         {/* Rutas ADMIN */}
         <Route element={<ProtecterRoute RolUser={"admin"} />}>
-          <Route path='/admin' element={<AdminLayout />}>
+          <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<HomeAdmin />} />
-            <Route path='perfil' element={<PerfilAdmin />} />
+            <Route path="perfil/:id" element={<PerfilAdmin />}>
+              <Route index element={<EditarPerfil />} />
+              <Route path="usuarios" element={<Usuarios />} />
+
+              <Route path="ordenes" element={<OrdenesAdmin />} />
+              <Route path="productos" element={<Productos />} />
+            </Route>
           </Route>
         </Route>
 

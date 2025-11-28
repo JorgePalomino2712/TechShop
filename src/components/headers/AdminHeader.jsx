@@ -1,11 +1,25 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 export default function AdminHeader() {
     const navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
     const [categoriesDropdown, setCategoriesDropdown] = useState(false);
+
+
+    const [userId, setUserId] = useState(localStorage.getItem("user_id"));
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const id = localStorage.getItem("user_id");
+            if (id !== userId) setUserId(id);
+        }, 200);
+
+        return () => clearInterval(interval);
+    }, [userId]);
+
+    console.log(`esta llegando: ${userId}`);
 
     return (
         <header className="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 font-inter">
@@ -102,7 +116,7 @@ export default function AdminHeader() {
                     {/* Botones de Login y registro */}
                     <div className="hidden md:flex items-center space-x-4">
                         <button
-                            onClick={() => navigate('/admin/perfil')}
+                            onClick={() => navigate(`/admin/perfil/${userId}`)}
                             className="text-gray-700 hover:text-blue-600 font-medium transition-colors cursor-pointer"
                         >
                             Mi Perfil

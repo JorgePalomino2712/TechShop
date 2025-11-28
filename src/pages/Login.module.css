@@ -41,12 +41,12 @@
   border-radius: 20px;
 }
 
-form {
+.form {
   width: 100%;
   padding: 0 10px;
 }
 
-h2 {
+.h2 {
   font-size: 2em;
   color: #18A0E4;
   text-align: center;
@@ -58,7 +58,7 @@ h2 {
   margin: 15px 0;
 }
 
-input {
+.input {
   width: 100%;
   height: 45px;
   background: transparent;
@@ -71,12 +71,12 @@ input {
   transition: 0.5s ease;
 }
 
-input:focus {
+.input:focus {
   border-color: #18A0E4;
 }
 
-input[value]:not([value=""]) ~ label,
-input:focus ~ label {
+.input[value]:not([value=""]) ~ label,
+.input:focus ~ label {
   top: -10px;
   font-size: 0.8em;
   background: #1f293a;
@@ -84,7 +84,8 @@ input:focus ~ label {
   color: #18A0E4;
 }
 
-label {
+
+.label {
   position: absolute;
   top: 50%;
   left: 15px;
@@ -100,7 +101,7 @@ label {
   text-align: center;
 }
 
-.forgot-pass a {
+.forgot-pass p {
   font-size: 0.85em;
   color: #fff;
   text-decoration: none;
@@ -124,7 +125,7 @@ label {
   text-align: center;
 }
 
-.signup-link a {
+.signup-link button {
   font-size: 1em;
   color: #18A0E4;
   text-decoration: none;
