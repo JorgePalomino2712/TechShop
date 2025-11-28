@@ -18,7 +18,7 @@ export default function Landing() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
-                onClick={() => navigate('/products')}
+                onClick={() => navigate('/productos')}
                 className="bg-[#7CB342] text-blue-900 px-8 py-4 rounded-lg text-lg font-bold hover:bg-[#8BC34A] transition-colors cursor-pointer"
               >
                 Ver Catálogo Completo

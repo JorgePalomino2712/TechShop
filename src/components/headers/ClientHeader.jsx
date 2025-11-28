@@ -108,8 +108,8 @@ export default function ClientHeader() {
           {/* User */}
           <div className="hidden md:flex items-center space-x-6">
             {/* Favoritos */}
-            <button
-              onClick={() => navigate('/client/favoritos')}
+            <button 
+              onClick={() => navigate('/client/profile/favoritos')}
               className="relative p-2 text-gray-700 hover:text-red-500 transition-colors cursor-pointer"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
